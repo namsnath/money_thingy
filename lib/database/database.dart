@@ -1,5 +1,7 @@
 import 'package:logging/logging.dart';
-import 'package:money_thingy/models/accounts_master.dart';
+import 'package:money_thingy/models/account_master.dart';
+import 'package:money_thingy/models/transaction.dart' as TransactionModel;
+import 'package:money_thingy/models/transaction_type.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -8,9 +10,6 @@ class DatabaseProvider {
   static final DatabaseProvider dbProvider = DatabaseProvider();
 
   static const databaseName = 'MoneyThingy.db';
-
-  static const tableAccountsMaster = 'accounts_master';
-  static const tableTransactions = 'transactions';
 
   Database _db;
 
@@ -24,7 +23,7 @@ class DatabaseProvider {
   init() async {
     final dbDirectory = await getDatabasesPath();
 
-    _db = await openDatabase(join(dbDirectory, databaseName),
+    Database _db = await openDatabase(join(dbDirectory, databaseName),
         version: 1, onCreate: _createDatabase, onUpgrade: _onUpgrade);
 
     log.info('Initialised Database');
@@ -32,11 +31,13 @@ class DatabaseProvider {
   }
 
   void _createDatabase(Database database, int version) async {
-    await database.execute("CREATE TABLE $tableAccountsMaster ("
-        "${AccountsMaster.colId} INTEGER PRIMARY KEY, "
-        "${AccountsMaster.colInstitution} TEXT, "
-        "${AccountsMaster.colAccount} TEXT"
-        ")");
+    await database.execute(TransactionType.tableCreateQuery);
+    // await database.execute(AccountType.tableCreateQuery);
+    await database.execute(AccountMaster.tableCreateQuery);
+    await database.execute(TransactionModel.Transaction.tableCreateQuery);
+
+    await database.execute(AccountMaster.initialiseValuesQuery);
+    await database.execute(TransactionType.initialiseValuesQuery);
     log.info('Created Database');
   }
 
