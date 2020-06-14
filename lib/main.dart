@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/database/providers/accounts_master_provider.dart';
+import 'package:money_thingy/providers/accounts_master_provider.dart';
 import 'package:money_thingy/service_locator.dart';
 import 'package:provider/provider.dart';
 
 import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/home_page/home_page.dart';
+import 'package:money_thingy/screens/home_page.dart';
 
 void main() {
   setupLocator();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AccountsMasterProvider())
+        ChangeNotifierProvider(create: (_) => AccountMasterProvider())
       ],
       child: MyApp(),
     )
