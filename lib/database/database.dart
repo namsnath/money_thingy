@@ -1,5 +1,6 @@
 import 'package:logging/logging.dart';
 import 'package:money_thingy/models/account_master.dart';
+import 'package:money_thingy/models/category.dart';
 import 'package:money_thingy/models/transaction.dart' as TransactionModel;
 import 'package:money_thingy/models/transaction_type.dart';
 import 'package:path/path.dart';
@@ -31,13 +32,18 @@ class DatabaseProvider {
   }
 
   void _createDatabase(Database database, int version) async {
+    // Table Creation
     await database.execute(TransactionType.tableCreateQuery);
     // await database.execute(AccountType.tableCreateQuery);
     await database.execute(AccountMaster.tableCreateQuery);
+    await database.execute(Category.tableCreateQuery);
     await database.execute(TransactionModel.Transaction.tableCreateQuery);
 
+
+    // Initial Value Population
     await database.execute(AccountMaster.initialiseValuesQuery);
     await database.execute(TransactionType.initialiseValuesQuery);
+    await database.execute(Category.initialiseValuesQuery);
     log.info('Created Database');
   }
 
