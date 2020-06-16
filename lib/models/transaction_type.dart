@@ -1,3 +1,5 @@
+import 'package:money_thingy/constants/initial_transaction_types.dart';
+
 class TransactionType {
   static const tableName = 'transaction_types';
 
@@ -5,19 +7,15 @@ class TransactionType {
   static const colTransactionType = 'transaction_type';
 
   static const columns = [colId, colTransactionType];
+  static final columnsString = columns.join(',');
 
   static const tableCreateQuery = 'CREATE TABLE $tableName ('
       '$colId INTEGER PRIMARY KEY, '
       '$colTransactionType TEXT'
       ')';
 
-  static const initialiseValuesQuery =
-      'INSERT INTO $tableName ($colTransactionType) VALUES'
-      '("Income"), '
-      '("Expense"), '
-      '("Transfer"), '
-      '("Investment"), '
-      '("Investment Return")';
+  static final initialiseValuesQuery =
+      'INSERT INTO $tableName ($columnsString) VALUES ${InitialTransactionTypes.data}';
 
   final int id;
   final String transactionType;
