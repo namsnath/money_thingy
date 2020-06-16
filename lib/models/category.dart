@@ -14,11 +14,11 @@ class Category {
 
   static const tableCreateQuery = 'CREATE TABLE $tableName ('
       '$colId INTEGER PRIMARY KEY, '
-      '$colFkSelfParentId INTEGER, '
-      '$colFkTransactionTypeId INTEGER, '
+      '$colFkSelfParentId INTEGER DEFAULT 0, '
+      '$colFkTransactionTypeId INTEGER DEFAULT 0, '
       '$colCategory TEXT, '
-      'FOREIGN KEY ($colFkSelfParentId) REFERENCES $tableName ($colId) ON DELETE SET NULL ON UPDATE CASCADE, '
-      'FOREIGN KEY ($colFkTransactionTypeId) REFERENCES ${TransactionType.tableName} (${TransactionType.colId}) ON DELETE SET NULL ON UPDATE CASCADE'
+      'FOREIGN KEY ($colFkSelfParentId) REFERENCES $tableName ($colId) ON DELETE SET DEFAULT ON UPDATE CASCADE, '
+      'FOREIGN KEY ($colFkTransactionTypeId) REFERENCES ${TransactionType.tableName} (${TransactionType.colId}) ON DELETE SET DEFAULT ON UPDATE CASCADE'
       ')';
 
   static final initialiseValuesQuery =
