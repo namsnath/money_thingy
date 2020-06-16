@@ -8,9 +8,9 @@ class AccountMaster {
   static const columns = [colId, colAccount, colInstitution];
 
   static const tableCreateQuery = 'CREATE TABLE $tableName ('
-      '${AccountMaster.colId} INTEGER PRIMARY KEY, '
-      '${AccountMaster.colAccount} TEXT, '
-      '${AccountMaster.colInstitution} TEXT'
+      '$colId INTEGER PRIMARY KEY, '
+      '$colAccount TEXT, '
+      '$colInstitution TEXT'
       ')';
 
   static final initialiseValuesQuery =
