@@ -51,7 +51,7 @@ class InitialCategories {
     [38, 37, 2, 'Internet'],
     [39, 37, 2, 'Telephone'],
     [40, 37, 2, 'Electric'],
-    [41, 37, 2, 'Clothes Wash'],
+    [41, 37, 2, 'Laundry'],
     [42, 37, 2, 'Water'],
     [43, 37, 2, 'Other'],
     // Vacation
