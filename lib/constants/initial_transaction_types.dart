@@ -1,5 +1,5 @@
 class InitialTransactionTypes {
-  static const _data = [
+  static const List<List<dynamic>> _data = [
     [1, 'Income'],
     [2, 'Expense'],
     [3, 'Transfer'],
