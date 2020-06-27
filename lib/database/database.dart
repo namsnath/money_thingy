@@ -4,6 +4,7 @@ import 'package:money_thingy/models/category.dart';
 import 'package:money_thingy/models/transaction.dart' as TransactionModel;
 import 'package:money_thingy/models/transaction_type.dart';
 import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseProvider {
@@ -22,9 +23,11 @@ class DatabaseProvider {
   }
 
   init() async {
-    final dbDirectory = await getDatabasesPath();
+    // final dbDirectory = await getDatabasesPath();
+    final dbDirectory = await getExternalStorageDirectory();
+    log.info(dbDirectory.path);
 
-    Database _db = await openDatabase(join(dbDirectory, databaseName),
+    Database _db = await openDatabase(join(dbDirectory.path, databaseName),
         version: 1, onCreate: _createDatabase, onUpgrade: _onUpgrade);
 
     log.info('Initialised Database');
