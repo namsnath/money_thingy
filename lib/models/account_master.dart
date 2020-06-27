@@ -1,4 +1,6 @@
-class AccountMaster {
+import 'package:equatable/equatable.dart';
+
+class AccountMaster with EquatableMixin {
   static const tableName = 'accounts_master';
 
   static const colId = 'id';
@@ -36,4 +38,8 @@ class AccountMaster {
         colAccount: this.account,
         colInstitution: this.institution,
       };
+
+  // Equatable
+  @override
+  List<Object> get props => [id];
 }

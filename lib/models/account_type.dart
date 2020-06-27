@@ -1,4 +1,6 @@
-class AccountType {
+import 'package:equatable/equatable.dart';
+
+class AccountType with EquatableMixin {
   static const tableName = 'account_types';
 
   static const colId = 'id';
@@ -27,4 +29,8 @@ class AccountType {
         colId: this.id,
         colAccountType: this.accountType,
       };
+
+  // Equatable
+  @override
+  List<Object> get props => [id];
 }

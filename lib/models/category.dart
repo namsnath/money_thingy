@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:money_thingy/constants/initial_categories.dart';
 import 'package:money_thingy/models/transaction_type.dart';
 
-class Category {
+class Category with EquatableMixin {
   static const tableName = 'categories';
 
   static const colId = 'id';
@@ -9,7 +10,12 @@ class Category {
   static const colFkTransactionTypeId = 'fk_transaction_type_id';
   static const colCategory = 'category';
 
-  static const columns = [colId, colFkSelfParentId, colFkTransactionTypeId, colCategory];
+  static const columns = [
+    colId,
+    colFkSelfParentId,
+    colFkTransactionTypeId,
+    colCategory
+  ];
   static final columnsString = columns.join(',');
 
   static const tableCreateQuery = 'CREATE TABLE $tableName ('
@@ -29,7 +35,8 @@ class Category {
   final int fkTransactionTypeId;
   final String category;
 
-  Category({this.id, this.fkSelfParentId, this.fkTransactionTypeId, this.category});
+  Category(
+      {this.id, this.fkSelfParentId, this.fkTransactionTypeId, this.category});
 
   factory Category.fromDatabaseJson(Map<String, dynamic> data) {
     return Category(
@@ -46,4 +53,8 @@ class Category {
         colFkTransactionTypeId: this.fkTransactionTypeId,
         colCategory: this.category,
       };
+
+  // Equatable
+  @override
+  List<Object> get props => [id];
 }

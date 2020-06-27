@@ -1,8 +1,9 @@
+import 'package:equatable/equatable.dart';
 import 'package:money_thingy/models/account_master.dart';
 import 'package:money_thingy/models/category.dart';
 import 'package:money_thingy/models/transaction_type.dart';
 
-class Transaction {
+class Transaction with EquatableMixin {
   static const tableName = 'transactions';
 
   static const colId = 'id';
@@ -54,17 +55,16 @@ class Transaction {
   final double creditAmount;
   final String description;
 
-  Transaction({
-    this.id,
-    this.fkAccountId,
-    this.fkTransactionTypeId,
-    this.fkCategoryId,
-    this.transactionTime,
-    this.modifiedTime,
-    this.debitAmount,
-    this.creditAmount,
-    this.description
-  });
+  Transaction(
+      {this.id,
+      this.fkAccountId,
+      this.fkTransactionTypeId,
+      this.fkCategoryId,
+      this.transactionTime,
+      this.modifiedTime,
+      this.debitAmount,
+      this.creditAmount,
+      this.description});
 
   factory Transaction.fromDatabaseJson(Map<String, dynamic> data) {
     return Transaction(
@@ -91,4 +91,8 @@ class Transaction {
         colCreditAmount: this.creditAmount,
         colDescription: this.description,
       };
+
+  // Equatable
+  @override
+  List<Object> get props => [id];
 }
