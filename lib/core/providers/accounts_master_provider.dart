@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/models/account_master.dart';
+import 'package:money_thingy/core/database/database.dart';
+import 'package:money_thingy/core/models/account_master.dart';
 
 class AccountMasterProvider extends ChangeNotifier {
   final log = Logger('AccountsMasterProvider');

@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_treeview/tree_view.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/models/category.dart';
-import 'package:money_thingy/models/transaction_type.dart';
+import 'package:money_thingy/core/database/database.dart';
+import 'package:money_thingy/core/models/category.dart';
+import 'package:money_thingy/core/models/transaction_type.dart';
 
 class CategoryProvider extends ChangeNotifier {
   final log = Logger('CategoryProvider');

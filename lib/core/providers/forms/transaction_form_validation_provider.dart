@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:money_thingy/models/forms/validation_item.dart';
+import 'package:money_thingy/core/models/forms/validation_item.dart';
 
 class TransactionFormValidationProvider with ChangeNotifier {
   ValidationItem _amount =

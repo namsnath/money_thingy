@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:money_thingy/constants/initial_categories.dart';
-import 'package:money_thingy/models/transaction_type.dart';
+import 'package:money_thingy/core/constants/initial_categories.dart';
+import 'package:money_thingy/core/models/transaction_type.dart';
 
 class Category with EquatableMixin {
   static const tableName = 'categories';

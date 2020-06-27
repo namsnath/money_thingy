@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:money_thingy/models/transaction_type.dart';
-import 'package:money_thingy/providers/transaction_type_provider.dart';
-import 'package:money_thingy/providers/transaction_type_toggle_provider.dart';
+import 'package:money_thingy/core/models/transaction_type.dart';
+import 'package:money_thingy/core/providers/transaction_type_provider.dart';
+import 'package:money_thingy/core/providers/transaction_type_toggle_provider.dart';
 import 'package:provider/provider.dart';
 
 class TransactionTypeToggle extends StatefulWidget {

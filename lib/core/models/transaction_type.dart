@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:money_thingy/constants/initial_transaction_types.dart';
+import 'package:money_thingy/core/constants/initial_transaction_types.dart';
 
 class TransactionType with EquatableMixin {
   static const tableName = 'transaction_types';

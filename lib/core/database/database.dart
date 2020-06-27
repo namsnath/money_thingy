@@ -1,8 +1,8 @@
 import 'package:logging/logging.dart';
-import 'package:money_thingy/models/account_master.dart';
-import 'package:money_thingy/models/category.dart';
-import 'package:money_thingy/models/transaction.dart' as TransactionModel;
-import 'package:money_thingy/models/transaction_type.dart';
+import 'package:money_thingy/core/models/account_master.dart';
+import 'package:money_thingy/core/models/category.dart';
+import 'package:money_thingy/core/models/transaction.dart' as TransactionModel;
+import 'package:money_thingy/core/models/transaction_type.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';

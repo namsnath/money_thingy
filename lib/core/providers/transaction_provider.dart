@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/models/transaction.dart';
-import 'package:money_thingy/utils/datetime_util.dart';
+import 'package:money_thingy/core/database/database.dart';
+import 'package:money_thingy/core/models/transaction.dart';
+import 'package:money_thingy/core/utils/datetime_util.dart';
 
 class TransactionProvider extends ChangeNotifier {
   final log = Logger('TransactionProvider');

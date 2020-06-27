@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:money_thingy/providers/accounts_master_provider.dart';
+import 'package:money_thingy/core/providers/accounts_master_provider.dart';
 import 'package:provider/provider.dart';
 
 class AccountSummary extends StatelessWidget {

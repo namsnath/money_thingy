@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_treeview/tree_view.dart';
-import 'package:money_thingy/providers/category_provider.dart';
+import 'package:money_thingy/core/providers/category_provider.dart';
 import 'package:provider/provider.dart';
 
 class CategoryList extends StatefulWidget {

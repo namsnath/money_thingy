@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/models/transaction_type.dart';
-import 'package:money_thingy/providers/category_provider.dart';
-import 'package:money_thingy/providers/transaction_type_provider.dart';
-import 'package:money_thingy/providers/transaction_type_toggle_provider.dart';
-import 'package:money_thingy/widgets/category_list.dart';
-import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/widgets/transaction_form.dart';
+import 'package:money_thingy/core/models/transaction_type.dart';
+import 'package:money_thingy/core/providers/category_provider.dart';
+import 'package:money_thingy/core/providers/transaction_type_provider.dart';
+import 'package:money_thingy/core/providers/transaction_type_toggle_provider.dart';
+import 'package:money_thingy/ui/widgets/category_list.dart';
+import 'package:money_thingy/core/database/database.dart';
+import 'package:money_thingy/ui/widgets/transaction_form.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {

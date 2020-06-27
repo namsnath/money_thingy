@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/models/transaction_type.dart';
+import 'package:money_thingy/core/database/database.dart';
+import 'package:money_thingy/core/models/transaction_type.dart';
 
 class TransactionTypeProvider extends ChangeNotifier {
   final log = Logger('TransactionTypeProvider');

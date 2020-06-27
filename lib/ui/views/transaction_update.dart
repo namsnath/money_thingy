@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/models/transaction_type.dart';
-import 'package:money_thingy/providers/forms/transaction_form_validation_provider.dart';
-import 'package:money_thingy/providers/transaction_type_provider.dart';
-import 'package:money_thingy/providers/transaction_type_toggle_provider.dart';
-import 'package:money_thingy/widgets/transaction_form.dart';
+import 'package:money_thingy/core/models/transaction_type.dart';
+import 'package:money_thingy/core/providers/forms/transaction_form_validation_provider.dart';
+import 'package:money_thingy/core/providers/transaction_type_provider.dart';
+import 'package:money_thingy/core/providers/transaction_type_toggle_provider.dart';
+import 'package:money_thingy/ui/widgets/transaction_form.dart';
 import 'package:provider/provider.dart';
 
 class TransactionUpdate extends StatelessWidget {

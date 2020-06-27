@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:money_thingy/providers/accounts_master_provider.dart';
-import 'package:money_thingy/providers/category_provider.dart';
-import 'package:money_thingy/providers/forms/transaction_form_validation_provider.dart';
-import 'package:money_thingy/providers/transaction_provider.dart';
-import 'package:money_thingy/providers/transaction_type_provider.dart';
-import 'package:money_thingy/screens/transaction_update.dart';
+import 'package:money_thingy/core/providers/accounts_master_provider.dart';
+import 'package:money_thingy/core/providers/category_provider.dart';
+import 'package:money_thingy/core/providers/forms/transaction_form_validation_provider.dart';
+import 'package:money_thingy/core/providers/transaction_provider.dart';
+import 'package:money_thingy/core/providers/transaction_type_provider.dart';
+import 'package:money_thingy/ui/views/transaction_update.dart';
 import 'package:money_thingy/service_locator.dart';
 import 'package:provider/provider.dart';
 
-import 'package:money_thingy/database/database.dart';
-import 'package:money_thingy/screens/home_page.dart';
+import 'package:money_thingy/core/database/database.dart';
+import 'package:money_thingy/ui/views/home_page.dart';
 
 void main() {
   setupLocator();
