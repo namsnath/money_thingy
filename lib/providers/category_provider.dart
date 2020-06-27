@@ -9,6 +9,8 @@ class CategoryProvider extends ChangeNotifier {
   final log = Logger('CategoryProvider');
   final dbProvider = DatabaseProvider.dbProvider;
 
+  static int get defaultCategory => 62; // Miscellaneous
+
   String getHierarchyQuery() => """
   WITH RECURSIVE categoriesHierarchical(${Category.colId}, ${Category.colFkSelfParentId}, ${Category.colFkTransactionTypeId}, ${Category.colCategory}) AS
 		(SELECT ${Category.tableName}.${Category.colId}
@@ -138,6 +140,20 @@ class CategoryProvider extends ChangeNotifier {
 
     List<Map<String, dynamic>> categoryHierarchyResult =
         await db.rawQuery(getHierarchyQuery());
+
+    categoryHierarchyResult = categoryHierarchyResult.map((v) {
+      Map<String, dynamic> temp = Map<String, dynamic>.from(v);
+
+      List<String> categories = [];
+
+      for (int j = 1; j <= 10; j++) {
+        if (temp['iTree$j'] != null) categories.add(temp['iTree$j']);
+        else break;
+      }
+      
+      temp['categoryDisplayName'] = categories.join(':');
+      return temp;
+    }).toList();
 
     this._categoryList = accounts;
     this._categoryHierarchy = categoryHierarchyResult;
