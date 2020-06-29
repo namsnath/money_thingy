@@ -37,6 +37,7 @@ dependencies:
   flutter_treeview: ^0.4.1+1
   intl: ^0.16.1
   equatable: ^1.2.0
+  stacked: ^1.2.2
 
 dev_dependencies:
   flutter_test:

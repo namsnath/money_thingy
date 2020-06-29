@@ -5,7 +5,7 @@ import 'package:money_thingy/core/providers/category_provider.dart';
 import 'package:money_thingy/core/providers/forms/transaction_form_validation_provider.dart';
 import 'package:money_thingy/core/providers/transaction_provider.dart';
 import 'package:money_thingy/core/providers/transaction_type_provider.dart';
-import 'package:money_thingy/ui/views/transaction_update.dart';
+import 'package:money_thingy/ui/views/transaction_update/transaction_update_view.dart';
 import 'package:money_thingy/service_locator.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +33,7 @@ void main() {
 
   Logger.root.level = Level.FINE; // defaults to Level.INFO
   Logger.root.onRecord.listen((record) {
-    print('${record.level.name}: ${record.time}: ${record.message}');
+    print('${record.loggerName}_${record.level.name}: ${record.time}: ${record.message}');
   });
 }
 
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: TransactionUpdate(),
+      home: TransactionUpdateView(),
     );
   }
 }
