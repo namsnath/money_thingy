@@ -5,8 +5,12 @@ import 'package:provider/provider.dart';
 
 class CategoryList extends StatefulWidget {
   final int transactionTypeIdFilter;
+  final int initialSelectedCategory;
 
-  CategoryList({Key key, @required this.transactionTypeIdFilter})
+  CategoryList(
+      {Key key,
+      @required this.transactionTypeIdFilter,
+      this.initialSelectedCategory})
       : super(key: key);
 
   @override
@@ -22,8 +26,11 @@ class _CategoryListState extends State<CategoryList> {
   Widget build(BuildContext context) {
     return Consumer<CategoryProvider>(builder: (context, category, child) {
       TreeViewController _treeViewController = TreeViewController(
-          children: category.getCategoryTree(
-              transactionTypeId: widget.transactionTypeIdFilter));
+        children: category.getCategoryTree(
+          transactionTypeId: widget.transactionTypeIdFilter,
+        ),
+        selectedKey: widget.initialSelectedCategory?.toString(),
+      );
 
       TreeViewTheme _treeViewTheme = TreeViewTheme(
         expanderTheme: ExpanderThemeData(

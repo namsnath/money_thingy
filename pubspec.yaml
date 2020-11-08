@@ -37,6 +37,7 @@ dependencies:
   flutter_treeview: ^0.4.1+1
   intl: ^0.16.1
   equatable: ^1.2.0
+  circular_bottom_navigation: ^1.0.1
 
 dev_dependencies:
   flutter_test:

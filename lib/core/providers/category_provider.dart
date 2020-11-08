@@ -121,6 +121,9 @@ class CategoryProvider extends ChangeNotifier {
   List<Map<String, dynamic>> _categoryHierarchy = [];
   List<Map<String, dynamic>> get categoryHierarchy => _categoryHierarchy;
 
+  Map<int, String> _categoryHierarchyMap = {};
+  Map<int, String> get categoryHierarchyMap => _categoryHierarchyMap;
+
   CategoryProvider() {
     // Initialise the state on Provider initialization
     getAllCategories();
@@ -140,6 +143,7 @@ class CategoryProvider extends ChangeNotifier {
 
     List<Map<String, dynamic>> categoryHierarchyResult =
         await db.rawQuery(getHierarchyQuery());
+    Map<int, String> categoryMap = {};
 
     categoryHierarchyResult = categoryHierarchyResult.map((v) {
       Map<String, dynamic> temp = Map<String, dynamic>.from(v);
@@ -152,11 +156,14 @@ class CategoryProvider extends ChangeNotifier {
       }
       
       temp['categoryDisplayName'] = categories.join(':');
+      categoryMap[temp['id']] = temp['categoryDisplayName'];
+      
       return temp;
     }).toList();
 
     this._categoryList = accounts;
     this._categoryHierarchy = categoryHierarchyResult;
+    this._categoryHierarchyMap = categoryMap;
 
     notifyListeners();
   }

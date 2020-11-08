@@ -33,20 +33,27 @@ class HomePage extends StatelessWidget {
               // ),
               MultiProvider(
                 providers: [
+                  // ChangeNotifierProxyProvider<TransactionTypeProvider,
+                  //     TransactionTypeToggleProvider>(
+                  //   create: (_) => TransactionTypeToggleProvider(),
+                  //   update: (_, txnType, __) {
+                  //     List<TransactionType> _transactionTypes =
+                  //         txnType.formTransactionTypeList;
+
+                  //     TransactionType _selectedTransactionType =
+                  //         _transactionTypes.length > 0
+                  //             ? _transactionTypes[0]
+                  //             : null;
+                  //     return TransactionTypeToggleProvider(
+                  //         selected: _selectedTransactionType);
+                  //   },
+                  // ),
                   ChangeNotifierProxyProvider<TransactionTypeProvider,
                       TransactionTypeToggleProvider>(
-                    create: (_) => TransactionTypeToggleProvider(),
-                    update: (_, txnType, __) {
-                      List<TransactionType> _transactionTypes =
-                          txnType.formTransactionTypeList;
-
-                      TransactionType _selectedTransactionType =
-                          _transactionTypes.length > 0
-                              ? _transactionTypes[0]
-                              : null;
-                      return TransactionTypeToggleProvider(
-                          selected: _selectedTransactionType);
-                    },
+                    create: (_) => TransactionTypeToggleProvider(null),
+                    update: (_, txnType, oldTxnTypeToggle) =>
+                        TransactionTypeToggleProvider(txnType,
+                            selected: oldTxnTypeToggle.selectedTransactionType),
                   ),
                 ],
                 child: TransactionForm(),
